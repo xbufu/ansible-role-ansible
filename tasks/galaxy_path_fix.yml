@@ -5,6 +5,6 @@
 
 - name: Create symbolic link
   ansible.builtin.file:
-    src: '{{ binpath }}'
-    dest: /usr/bin/ansible-galaxy
+    src: '{{ binpath.stdout }}'
+    dest: /usr/local/bin/ansible-galaxy
     state: link
