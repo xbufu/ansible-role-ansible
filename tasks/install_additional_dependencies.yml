@@ -1,0 +1,15 @@
+---
+- name: Install additional dependencies
+  ansible.builtin.pip:
+    name: '{{ item }}'
+    extra_args: --user
+  become: false
+  loop:
+    - pywinrm
+    - pypsrp
+    - requests
+    - requests-credssp
+    - github3.py
+    - netaddr
+    - dnspython
+    - pyvmomi

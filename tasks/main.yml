@@ -1,0 +1,16 @@
+---
+- name: Prepare pip
+  ansible.builtin.include_tasks: prepare_pip.yml
+
+- name: Install Ansible
+  ansible.builtin.include_tasks: install_ansible.yml
+
+- name: Install additional dependencies
+  ansible.builtin.include_tasks: install_additional_dependencies.yml
+
+- name: Fix ansible-galaxy path
+  ansible.builtin.include_tasks: galaxy_path_fix.yml
+  when: ansible_os_family == "Debian"
+
+- name: Install collections
+  ansible.builtin.include_tasks: install_collections.yml

@@ -1,0 +1,10 @@
+---
+- name: Get binary path
+  ansible.builtin.shell: which ansible-galaxy
+  register: binpath
+
+- name: Create symbolic link
+  ansible.builtin.file:
+    src: '{{ binpath }}'
+    dest: /usr/bin/ansible-galaxy
+    state: link
