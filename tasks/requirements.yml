@@ -9,3 +9,8 @@ collections:
   - name: lvrfrc87.git_acp
   - name: microsoft.ad
   - name: pfsensible.core
+
+roles:
+  - name: xbufu.packer
+  - name: xbufu.terraform
+  - name: xbufu.ansible
