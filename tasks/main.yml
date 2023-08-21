@@ -14,3 +14,6 @@
 
 - name: Install collections
   ansible.builtin.include_tasks: install_collections.yml
+
+- name: Install roles
+  ansible.builtin.include_tasks: install_roles.yml

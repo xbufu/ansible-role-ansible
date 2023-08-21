@@ -1,6 +1,16 @@
 ---
 - name: Install collections
   community.general.ansible_galaxy_install:
-    type: both
-    requirements_file: requirements.yml
+    type: collection
+    name: '{{ item }}'
   become: false
+  loop:
+    - ansible.posix
+    - ansible.windows
+    - community.docker
+    - community.general
+    - community.vmware
+    - community.windows
+    - lvrfrc87.git_acp
+    - microsoft.ad
+    - pfsensible.core
