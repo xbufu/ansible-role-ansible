@@ -13,3 +13,8 @@
     - netaddr
     - dnspython
     - pyvmomi
+
+- name: Install SSHPass
+  ansible.builtin.package:
+    name: sshpass
+    update_cache: true
