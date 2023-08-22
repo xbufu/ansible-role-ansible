@@ -1,6 +1,6 @@
 ---
 - name: Create symbolic link
   ansible.builtin.file:
-    src: '{{ ansible_env.SUDO_USER }}/.local/bin/ansible-galaxy'
+    src: '/home/{{ ansible_env.SUDO_USER }}/.local/bin/ansible-galaxy'
     dest: /usr/local/bin/ansible-galaxy
     state: link
