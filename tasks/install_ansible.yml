@@ -2,9 +2,11 @@
 - name: Install Ansible
   ansible.builtin.pip:
     name: ansible
+    extra_args: --user
   become: false
 
 - name: Install Ansible Lint
   ansible.builtin.pip:
     name: ansible-lint
+    extra_args: --user
   become: false
