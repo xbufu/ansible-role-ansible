@@ -7,7 +7,7 @@
     - sshpass
     - python3-proxmoxer
     - python3-pyvmomi
-    - python-pyvmomi-doc 
+    - python-pyvmomi-doc
     - python3-dnspython
 
 - name: Inject dependencies via pipx
