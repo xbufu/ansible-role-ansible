@@ -1,12 +1,7 @@
 ---
 - name: Install Ansible
-  ansible.builtin.pip:
+  community.general.pipx:
     name: ansible
-    extra_args: --user
-  become: false
-
-- name: Install Ansible Lint
-  ansible.builtin.pip:
-    name: ansible-lint
-    extra_args: --user
+    install_apps: true
+    install_deps: true
   become: false

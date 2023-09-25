@@ -1,20 +1,29 @@
 ---
-- name: Install additional dependencies
-  ansible.builtin.pip:
-    name: '{{ item }}'
-    extra_args: --user
-  become: false
-  loop:
-    - pywinrm
-    - pypsrp
-    - requests
-    - requests-credssp
-    - github3.py
-    - netaddr
-    - dnspython
-    - pyvmomi
-
-- name: Install SSHPass
+- name: Install apt dependencies and libraries
   ansible.builtin.package:
-    name: sshpass
+    name: '{{ item }}'
     update_cache: true
+  loop:
+    - sshpass
+    - python3-proxmoxer
+    - python3-pyvmomi
+    - python-pyvmomi-doc 
+    - python3-dnspython
+
+- name: Inject dependencies via pipx
+  community.general.pipx:
+    name: ansible
+    inject_packages:
+      - pywinrm
+      - pypsrp
+      - requests
+      - requests-credssp
+      - github3.py
+      - netaddr
+      - dnspython
+      - pyvmomi
+    install_apps: true
+    install_deps: true
+    state: inject
+  become: false
+  ignore_errors: true
