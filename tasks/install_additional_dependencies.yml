@@ -22,6 +22,7 @@
       - netaddr
       - dnspython
       - pyvmomi
+      - proxmoxer
     install_apps: true
     install_deps: true
     state: inject
