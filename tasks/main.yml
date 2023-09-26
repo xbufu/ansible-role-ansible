@@ -1,7 +1,4 @@
 ---
-- name: Prepare pip
-  ansible.builtin.include_tasks: prepare_pip.yml
-
 - name: Install Ansible
   ansible.builtin.include_tasks: install_ansible.yml
 
