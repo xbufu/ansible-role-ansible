@@ -8,3 +8,5 @@
     - xbufu.ansible
     - xbufu.packer
     - xbufu.terraform
+    - xbufu.docker
+    - xbufu.base_vm

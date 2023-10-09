@@ -1,28 +1,49 @@
 ---
-- name: Install apt dependencies and libraries
-  ansible.builtin.package:
-    name: '{{ item }}'
-    update_cache: true
-  loop:
-    - sshpass
-    - python3-proxmoxer
-    - python3-pyvmomi
-    - python-pyvmomi-doc
-    - python3-dnspython
+# - name: Install apt dependencies and libraries
+#   ansible.builtin.package:
+#     name: '{{ item }}'
+#     update_cache: true
+#   loop:
+#     - sshpass
+#     - python3-proxmoxer
+#     - python3-pyvmomi
+#     - python-pyvmomi-doc
+#     - python3-dnspython
 
-- name: Inject dependencies via pipx
-  community.general.pipx:
-    name: ansible
-    inject_packages:
-      - pywinrm
-      - pypsrp
-      - requests
-      - requests-credssp
-      - github3.py
-      - netaddr
-      - dnspython
-      - pyvmomi
-      - proxmoxer
-    state: inject
+# - name: Inject dependencies via pipx
+#   community.general.pipx:
+#     name: ansible
+#     inject_packages:
+#       - pywinrm
+#       - pypsrp
+#       - requests
+#       - requests-credssp
+#       - github3.py
+#       - netaddr
+#       - dnspython
+#       - pyvmomi
+#       - proxmoxer
+#     state: inject
+#   become: false
+#   ignore_errors: true
+
+- name: Install package dependencies
+  ansible.builtin.package:
+    name: sshpass
+    update_cache: true
+
+- name: Install pip dependencies
+  ansible.builtin.pip:
+    name: '{{ item }}'
+    extra_args: --user
   become: false
-  ignore_errors: true
+  loop:
+    - pywinrm
+    - pypsrp
+    - requests
+    - requests-credssp
+    - github3.py
+    - netaddr
+    - dnspython
+    - pyvmomi
+    - proxmoxer
