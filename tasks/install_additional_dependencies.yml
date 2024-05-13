@@ -29,8 +29,11 @@
 
 - name: Install package dependencies
   ansible.builtin.package:
-    name: sshpass
+    name: '{{ item }}'
     update_cache: true
+  loop:
+    - sshpass
+    - ipmitool
 
 - name: Install pip dependencies
   ansible.builtin.pip:
