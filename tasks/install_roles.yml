@@ -10,3 +10,5 @@
     - xbufu.terraform
     - xbufu.docker
     - xbufu.base_vm
+    - xbufu.cloud_init
+    - xbufu.kali
